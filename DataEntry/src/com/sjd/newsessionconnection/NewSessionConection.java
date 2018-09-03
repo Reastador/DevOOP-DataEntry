@@ -41,7 +41,7 @@ public class NewSessionConection {
 		while(iter.hasNext()) {
 			Date date = new Date();
 			long newTime = date.getTime();
-			if((iter.next().getTime()+86400000) < newTime) {
+			if((iter.next().getTime()+ 259200000) < newTime) {
 				iter.remove();
 			}
 		}
