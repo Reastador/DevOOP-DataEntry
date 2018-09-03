@@ -25,7 +25,7 @@ public void writelog(String text) {
 				    FileWriter fileWriter = new FileWriter(log, true);
 
 				    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-				    bufferedWriter.write(text + "\n");
+				    bufferedWriter.write(text);
 				    bufferedWriter.close();
                     
 				} catch(IOException e) {
@@ -46,7 +46,7 @@ public void writelog(String text) {
 			while ((tempText = bufferedReader.readLine()) != null ) {
 				String[] words = tempText.split(" ");
 				NewSession newSession = new NewSession();
-				if(words[0]=="") {
+				if(words[0].equals("")) {
 					break;
 				}
 				newSession.setTime(Long.parseLong(words[0]));
@@ -63,4 +63,23 @@ public void writelog(String text) {
 		
 		return list;
  }
+ public void reWritelog(String text) {
+		File log = new File("log.txt");
+
+				try{
+				    if(!log.exists()){
+				        System.out.println("We had to make a new file.");
+				        log.createNewFile();
+				    }
+
+				    FileWriter fileWriter = new FileWriter(log, false);
+
+				    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+				    bufferedWriter.write(text);
+				    bufferedWriter.close();
+                 
+				} catch(IOException e) {
+				    System.out.println("COULD NOT LOG!!");
+				}	
+}
 }
