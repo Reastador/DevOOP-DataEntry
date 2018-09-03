@@ -1,12 +1,19 @@
 package com.sjd.listLogopertions;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.sjd.newsession.NewSession;
 
 public class LogWriter {
- public void writelog(String text) {
+
+public void writelog(String text) {
 		File log = new File("log.txt");
 
 				try{
@@ -24,5 +31,36 @@ public class LogWriter {
 				} catch(IOException e) {
 				    System.out.println("COULD NOT LOG!!");
 				}	
+ }
+ public static List<NewSession> getAllSessions(){
+		List<NewSession> list = new ArrayList<>();
+		
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
+		
+		try {
+			fileReader = new FileReader("log.txt");
+			bufferedReader = new BufferedReader(fileReader);
+			String tempText;
+			
+			while ((tempText = bufferedReader.readLine()) != null ) {
+				String[] words = tempText.split(" ");
+				NewSession newSession = new NewSession();
+				if(words[0]=="") {
+					break;
+				}
+				newSession.setTime(Long.parseLong(words[0]));
+				newSession.setSession(Integer.parseInt(words[1]));
+				newSession.setId(words[2]);
+
+				list.add(newSession);
+				
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
  }
 }

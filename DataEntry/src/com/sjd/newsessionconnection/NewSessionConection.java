@@ -21,9 +21,9 @@ public class NewSessionConection {
 		list.add(newsession);
 	}
 	public String showList() {
-		String info ="";
-		for(NewSession e : list) {
-	    info += (String) e.getClass().getSimpleName() +" " +  e.getTime() + " " + e.getSession()+ " " + e.getId() + "\n";
+		String info =list.get(0).getTime() + " " + list.get(0).getSession() + " " + list.get(0).getId() + "\n";
+		for(int i =1;i<list.size();i++) {
+	    info += list.get(i).getTime() + " " + list.get(i).getSession()+ " " + list.get(i).getId() + "\n";
 		}
 	return info;	
 	}

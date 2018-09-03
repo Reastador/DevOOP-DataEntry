@@ -21,10 +21,11 @@ public class Main {
 		con.listAdd();
 		con.listAdd();
 		con.listAdd();
-		logger.log(Level.INFO,"Server info : " + con.showList());
+		logger.log(Level.INFO,con.showList());
 		
 		String text= con.showList();
 		logOperations.writelog(text);
+		System.out.println(LogWriter.getAllSessions());
 	}
 
 }
