@@ -21,6 +21,7 @@ public class Main {
 		con.deleteSessions();
 		
 		logOperations.reWritelog(con.showList());
+		logOperations.writeObjectTolog();
 	}
 
 }
