@@ -33,10 +33,10 @@ public class Main {
 		thread1 = new SecondThread();
 		thread1.run();
 		thread2 = new SecondThread();
-		thread2.sleep(60000);
+		//thread2.sleep(60000);
 		thread2.run();
 		thread3 = new SecondThread();
-		thread3.sleep(60000);
+		//thread3.sleep(60000);
 		thread3.run();
 	}
 

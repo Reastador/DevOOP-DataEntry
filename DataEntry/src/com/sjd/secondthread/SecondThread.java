@@ -13,7 +13,7 @@ public class SecondThread extends Thread{
 	private static Logger logger = Logger.getLogger(Main.class.getName());
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		File log = new File("log.txt");
 		NewSessionConection con = new NewSessionConection();
 				
