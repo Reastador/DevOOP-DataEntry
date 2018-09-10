@@ -12,6 +12,16 @@ import com.sjd.randomizer.Randomizer;
 public class NewSessionConection {
  
 	List <NewSession> list = new ArrayList<>();	
+	public String sessionCreation(){
+		NewSession newsession = new NewSession();
+        newsession.setId(Randomizer.idCreation());
+		
+		newsession.setTime(Randomizer.dateCreation());
+		
+		newsession.setSession(Randomizer.sesionCreation());
+		String session = newsession.getTime() + " " + newsession.getSession() + " " + newsession.getId() + "\n";
+		return session;
+	}
 	
 	public void listAdd() {
 		NewSession newsession = new NewSession();

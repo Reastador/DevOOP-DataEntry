@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 
 import com.sjd.Main;
 import com.sjd.newsession.NewSession;
-import com.sjd.randomizer.Randomizer;
 
 public class LogWriter {
 	private static Logger logger = Logger.getLogger(Main.class.getName());
@@ -37,15 +36,9 @@ public void writelog(String text) {
 				}	
  }
 
-public void writeObjectTolog() {
+public void writeObjectTolog(String textToAdd) {
 	File log = new File("log.txt");
-	NewSession newsession = new NewSession();
-	
-    newsession.setId(Randomizer.idCreation());
-	newsession.setTime(Randomizer.dateCreation());
-	newsession.setSession(Randomizer.sesionCreation());   
-	
-	String textToAdd = newsession.getTime() + " " + newsession.getSession() + " " + newsession.getId() + "\n"; 
+	  	 
 			try{
 			    if(!log.exists()){
 			    	logger.log(Level.INFO,"We had to make a new file.");
