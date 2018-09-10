@@ -16,6 +16,7 @@ public class SecondThread extends Thread{
 	public void run() {
 		File log = new File("log.txt");
 		NewSessionConection con = new NewSessionConection();
+				
 		 		for(int i = 0;i < 3; i++) {
 		 		try {
 		 			sleep(60000);
