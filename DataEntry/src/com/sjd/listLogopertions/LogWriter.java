@@ -36,7 +36,7 @@ public void writelog(String text) {
 				}	
  }
 
-public void writeObjectTolog(String textToAdd) {
+public synchronized void writeObjectTolog(String textToAdd) {
 	File log = new File("log.txt");
 	  	 
 			try{
